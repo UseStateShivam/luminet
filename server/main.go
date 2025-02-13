@@ -12,6 +12,12 @@ import (
 )
 
 func main() {
+	// net.Listen is used to create a network listener for a specified protocol (e.g., TCP, UDP).
+	// Returns a net.Listener that can be used to accept connections manually.
+	// Low-level function that allows handling connections with more control.
+	// But http.ListenAndServe is specifically designed for serving HTTP requests.
+	// Internally calls net.Listen("tcp", addr) and then starts handling HTTP requests using a provided http.Handler.
+	// Higher-level and more convenient for web servers.
 	listener, err := net.Listen("tcp", ":8000")
 	if err != nil {
 		fmt.Printf("error in listening on 8000: %s", err)
